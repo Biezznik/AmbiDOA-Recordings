@@ -1,0 +1,34 @@
+# Data / media (large, not tracked)
+recordings/
+Measurement_Photo/
+Calib_Photo/
+TEST_AmbiDOA_REC.wav
+
+# Local / unused files
+relabel_run.py
+/config.json
+
+# Claude Code context
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+speaker-array-groundtruth/docs/01-pipeline-overview.md
+speaker-array-groundtruth/docs/02-marker-sizing.md
+speaker-array-groundtruth/docs/03-calibration-procedure.md
+speaker-array-groundtruth/docs/04-coordinate-conventions.md
+speaker-array-groundtruth/docs/05-troubleshooting.md

@@ -1,0 +1,67 @@
+# Template for calibrate_measure.py --mode measure
+#
+# Copy this file once per measurement session, point it at:
+#   - the calibration YAML produced by --mode calibrate (created ONCE per rig),
+#   - a fresh 360° photo of the new speaker layout,
+#   - the desired output JSON path.
+# Then run:
+#   python calibrate_measure.py --mode measure --config <this_file>.yaml
+#
+# Measure mode reuses the calibration's R + mic_to_cam, so each run only
+# needs a new photo to ground-truth a new speaker arrangement.
+# Any field below can be overridden with the equivalent CLI flag
+# (--calibration, --image, --output, --speaker-ids).
+
+# ── Calibration parameters (produced by --mode calibrate) ─────────────────────
+calibration: calibration/rig_calibration_test.yaml
+
+# ── Measurement photo ─────────────────────────────────────────────────────────
+# Equirectangular 360° photo of the current speaker layout. Calibration
+# markers do NOT need to be in view — only the speaker markers.
+#
+# ArUco detection is stochastic: a marker visible in the frame is sometimes
+# missed in one shot and found in another. Provide SEVERAL photos of the SAME
+# (unmoved) rig as a list and their detections are merged — the union covers
+# markers any single shot drops, and repeated destections are averaged (which
+# reduces pixel noise, so accuracy is not compromised). Keep the camera still.
+image:
+  - Measurement_Photo/Measure_Pic_22.JPG
+  - Measurement_Photo/Measure_Pic_23.JPG
+  - Measurement_Photo/Measure_Pic_24.JPG
+
+# For a single photo, either keep one list item above or write it inline:
+#   image: Measurement_Photo/Measure_Pic_1.JPG
+
+# ── Output ────────────────────────────────────────────────────────────────────
+# JSON of detected speaker (azimuth_deg, elevation_deg). Schema matches what
+# playback_record.py expects under `calibration_manifest`, so this file can
+# feed the recording pipeline directly.
+output: Measurement/speaker_positions_Batch_10.json
+
+# ── Optional overrides ────────────────────────────────────────────────────────
+# Restrict detection to a subset of speakers. If null/omitted, the IDs in
+# the calibration YAML are used.
+speaker_ids: null
+# speaker_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+# Per-speaker distances (meters) for parallax correction. If null/omitted,
+# values from the calibration YAML are used.
+speaker_distances: null
+# speaker_distances:
+#   1: 2.10
+#   2: 2.08
+
+# ── Upscaled-tile marker recovery ─────────────────────────────────────────────
+# A tag on a distant / obliquely-viewed / poorly-lit speaker can be too small
+# for the detector at native resolution (its black border blends into the dark
+# speaker body, so the square is never segmented at any threshold). When any
+# expected speaker_id is still missing after the normal + seam passes, the image
+# is scanned in overlapping tiles upscaled ~3× (cubic), which enlarges those
+# tags past the detector's size/contrast floor. It only ADDS missed markers, so
+# it never disturbs the easy detections; it costs ~10-15 s per photo and only
+# runs when something is actually missing.
+#   upscale_recovery: true|false   (default true — set false to disable)
+#   upscale_factor:   integer      (default 3; ~3 works best, 2 is often too
+#                                    small and 4 over-interpolates)
+upscale_recovery: true
+upscale_factor: 3

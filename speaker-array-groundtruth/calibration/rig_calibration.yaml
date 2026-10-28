@@ -1,0 +1,50 @@
+metadata:
+  timestamp_utc: '2026-05-06T11:37:33.295871+00:00'
+  calibration_image: Calib_Photo/Output_Q360_20260120_134335_000000.JPG
+  calibration_input: calibrate_config_template.yaml
+  rms_residual_deg: 24.17103
+  used_marker_ids:
+  - 0
+  - 1
+  - 2
+  missing_marker_ids: []
+  image_width: 7680
+  image_height: 3840
+mic_to_cam:
+- 0.0
+- 0.0
+- 0.32
+R_matrix:
+- - -0.9623462498599444
+  - -0.088938472932487
+  - -0.25686502956404744
+- - -0.032727771493795015
+  - 0.9759950733633724
+  - -0.21531955262696237
+- - 0.2698491955769956
+  - -0.1988053439997591
+  - -0.9421559567521642
+speaker_ids:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+speaker_distances:
+  0: 2.5
+  1: 2.25
+  2: 2.52
+  3: 2.167
+  4: 2.048
+  5: 3.077
+  6: 3.074
+  7: 1.998
+  8: 1.988
+  9: 1.879
+  10: 1.869

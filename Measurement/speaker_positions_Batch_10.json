@@ -1,0 +1,275 @@
+{
+  "image": [
+    "Measurement_Photo/Measure_Pic_22.JPG",
+    "Measurement_Photo/Measure_Pic_23.JPG",
+    "Measurement_Photo/Measure_Pic_24.JPG"
+  ],
+  "calibration": "calibration/rig_calibration_test.yaml",
+  "timestamp_utc": "2026-10-14T09:53:15.808298+00:00",
+  "mic_to_cam": [
+    0.0,
+    0.0,
+    0.33
+  ],
+  "image_width": 7680,
+  "image_height": 3840,
+  "marker_trace": {
+    "detected_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "configured_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "matched_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "missing_marker_ids": [],
+    "unexpected_marker_ids": [],
+    "seam_recovery": {
+      "photos": [
+        "Measurement_Photo/Measure_Pic_22.JPG",
+        "Measurement_Photo/Measure_Pic_23.JPG",
+        "Measurement_Photo/Measure_Pic_24.JPG"
+      ],
+      "per_photo_recovery": {
+        "Measurement_Photo/Measure_Pic_22.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": [],
+          "recovered_upscale_ids": []
+        },
+        "Measurement_Photo/Measure_Pic_23.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": [],
+          "recovered_upscale_ids": [
+            5
+          ]
+        },
+        "Measurement_Photo/Measure_Pic_24.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": [],
+          "recovered_upscale_ids": []
+        }
+      },
+      "photo_hits": {
+        "0": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "1": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "2": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "3": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "4": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "5": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "6": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "7": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "8": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "9": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ],
+        "10": [
+          "Measure_Pic_22.JPG",
+          "Measure_Pic_23.JPG",
+          "Measure_Pic_24.JPG"
+        ]
+      },
+      "cross_photo_spread_deg": {
+        "0": 0.3283,
+        "1": 0.2914,
+        "2": 0.348,
+        "3": 0.1527,
+        "4": 0.2119,
+        "5": 0.2652,
+        "6": 0.3203,
+        "7": 0.3223,
+        "8": 0.2666,
+        "9": 0.3054,
+        "10": 0.3306
+      }
+    }
+  },
+  "missing_speaker_ids": [],
+  "speakers": {
+    "0": {
+      "azimuth_deg": 28.08387521730391,
+      "elevation_deg": -8.762124526256647
+    },
+    "1": {
+      "azimuth_deg": -34.37596392411887,
+      "elevation_deg": -8.03826128746672
+    },
+    "2": {
+      "azimuth_deg": -4.0607931774738795,
+      "elevation_deg": -10.939160432511514
+    },
+    "3": {
+      "azimuth_deg": 98.35265156618874,
+      "elevation_deg": -9.409765633241546
+    },
+    "4": {
+      "azimuth_deg": -101.74560096927279,
+      "elevation_deg": -9.599172484212842
+    },
+    "5": {
+      "azimuth_deg": 137.4254731581401,
+      "elevation_deg": -6.337099813401338
+    },
+    "6": {
+      "azimuth_deg": -137.65266214979744,
+      "elevation_deg": -6.404613826803632
+    },
+    "7": {
+      "azimuth_deg": 33.55813016430785,
+      "elevation_deg": 27.466895671646355
+    },
+    "8": {
+      "azimuth_deg": -42.29454938530262,
+      "elevation_deg": 23.792466406876812
+    },
+    "9": {
+      "azimuth_deg": 150.04727166767265,
+      "elevation_deg": 21.507789825703462
+    },
+    "10": {
+      "azimuth_deg": -147.35321074022718,
+      "elevation_deg": 20.285143698070033
+    }
+  }
+}

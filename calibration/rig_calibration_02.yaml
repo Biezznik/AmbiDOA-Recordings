@@ -1,0 +1,71 @@
+metadata:
+  timestamp_utc: '2026-10-14T09:39:07.329710+00:00'
+  calibration_image: Calib_Photo/Calib_Photo_2.JPG
+  calibration_input: calibrate_config.yaml
+  rms_residual_deg: 11.076708
+  image_width: 7680
+  image_height: 3840
+  marker_trace:
+    detected_marker_ids:
+    - 0
+    - 1
+    - 3
+    - 4
+    - 5
+    configured_marker_ids:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    matched_marker_ids:
+    - 0
+    - 1
+    - 3
+    - 4
+    - 5
+    missing_marker_ids:
+    - 2
+    unexpected_marker_ids: []
+    seam_recovery:
+      original_pass_ids:
+      - 0
+      - 1
+      - 3
+      - 4
+      - 5
+      rolled_pass_ids:
+      - 0
+      - 3
+      - 4
+      - 5
+      recovered_seam_ids: []
+      recovered_upscale_ids: []
+mic_to_cam:
+- 0.0
+- 0.0
+- 0.33
+R_matrix:
+- - 0.9766745038610143
+  - 0.08049380948258339
+  - 0.19906697401332848
+- - -0.03736475687812481
+  - 0.9766440111048499
+  - -0.21159005297146738
+- - -0.21144925739117706
+  - 0.1992165209213616
+  - 0.9568709366161711
+speaker_ids:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+speaker_distances: {}

@@ -1,0 +1,232 @@
+{
+  "image": [
+    "Measurement_Photo/Measure_Pic_20.JPG",
+    "Measurement_Photo/Measure_Pic_21.JPG"
+  ],
+  "calibration": "calibration/rig_calibration_02.yaml",
+  "timestamp_utc": "2026-08-08T17:35:26.433469+00:00",
+  "mic_to_cam": [
+    0.0,
+    0.0,
+    0.33
+  ],
+  "image_width": 7680,
+  "image_height": 3840,
+  "marker_trace": {
+    "detected_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "configured_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "matched_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "missing_marker_ids": [],
+    "unexpected_marker_ids": [],
+    "seam_recovery": {
+      "photos": [
+        "Measurement_Photo/Measure_Pic_20.JPG",
+        "Measurement_Photo/Measure_Pic_21.JPG"
+      ],
+      "per_photo_recovery": {
+        "Measurement_Photo/Measure_Pic_20.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": [],
+          "recovered_upscale_ids": []
+        },
+        "Measurement_Photo/Measure_Pic_21.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": [],
+          "recovered_upscale_ids": []
+        }
+      },
+      "photo_hits": {
+        "0": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "1": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "2": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "3": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "4": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "5": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "6": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "7": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "8": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "9": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ],
+        "10": [
+          "Measure_Pic_20.JPG",
+          "Measure_Pic_21.JPG"
+        ]
+      },
+      "cross_photo_spread_deg": {
+        "0": 0.2056,
+        "1": 0.0617,
+        "2": 0.1529,
+        "3": 0.151,
+        "4": 0.1739,
+        "5": 0.0361,
+        "6": 0.2145,
+        "7": 0.2088,
+        "8": 0.0993,
+        "9": 0.0809,
+        "10": 0.2061
+      }
+    }
+  },
+  "missing_speaker_ids": [],
+  "speakers": {
+    "0": {
+      "azimuth_deg": -169.40937199426662,
+      "elevation_deg": -10.402864157524533
+    },
+    "1": {
+      "azimuth_deg": 133.08989267180718,
+      "elevation_deg": -10.451293805705767
+    },
+    "2": {
+      "azimuth_deg": 162.53126832810875,
+      "elevation_deg": -12.113701162257957
+    },
+    "3": {
+      "azimuth_deg": -106.0311479471295,
+      "elevation_deg": -8.004965720216402
+    },
+    "4": {
+      "azimuth_deg": 63.91306103316981,
+      "elevation_deg": -9.562912508090285
+    },
+    "5": {
+      "azimuth_deg": -67.3715514313483,
+      "elevation_deg": -4.126440301481853
+    },
+    "6": {
+      "azimuth_deg": 22.78216868100751,
+      "elevation_deg": -4.755278087945752
+    },
+    "7": {
+      "azimuth_deg": -164.4049060384786,
+      "elevation_deg": 20.255579824944164
+    },
+    "8": {
+      "azimuth_deg": 130.8506574776035,
+      "elevation_deg": 21.09303238973042
+    },
+    "9": {
+      "azimuth_deg": -61.110464561082054,
+      "elevation_deg": 24.710129437907554
+    },
+    "10": {
+      "azimuth_deg": 11.886462678306463,
+      "elevation_deg": 26.81372378085674
+    }
+  }
+}

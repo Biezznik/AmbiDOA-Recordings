@@ -1,0 +1,74 @@
+# Template for calibrate_measure.py --mode calibrate
+#
+# Copy this file, fill in the measurements for your rig, and run:
+#   python calibrate_measure.py --mode calibrate --config <this_file>.yaml
+#
+# All distances in METERS, all coordinates in MIC FRAME (+x forward, +y left, +z up).
+# Calibration runs ONCE per rig assembly. The output YAML it produces is then
+# reused by every --mode measure invocation.
+
+# ── Rig geometry ──────────────────────────────────────────────────────────────
+# Vector FROM mic capsule TO camera optical center, expressed in mic frame.
+# Measure once with calipers.
+mic_to_cam: [0.000, 0.000, 0.33]
+
+# ── Calibration photo ─────────────────────────────────────────────────────────
+# 360° equirectangular image showing the calibration markers (5.7K minimum).
+calibration_image: Calib_Photo/Calib_Photo_3.JPG
+
+# ── Mic height above ground ───────────────────────────────────────────────────
+# Height of the mic capsule above the floor (meters). If set, it is SUBTRACTED
+# from every marker's z below, so you can record marker z relative to the GROUND
+# (as measured with a tape) instead of relative to the mic. Leave 0 (or omit) to
+# keep marker z already expressed in mic frame.
+mic_height: 1.289
+
+# ── Calibration markers ───────────────────────────────────────────────────────
+# marker_id -> [x, y, z] (x+ front, y+ left, z+ up) in mic frame (meters); with mic_height set above, z is
+# taken relative to the GROUND and mic_height is subtracted automatically.
+# Place at least 5; spread them across BOTH azimuth and elevation for best fit.
+
+calibration_markers:
+  000: [1.764,  0.000,  0.626] 
+  001: [1.764,  0.000,  1.536]  # left wall, mic height
+  002: [0, 1.712,  0.733]   # rear wall
+  003: [0, 1.712,  1.883]   # far wall, dead ahead, mic height
+  004: [0,  -1.794,  0.719]   # left wall, mic height
+  005: [0,  -1.794,  1.535]
+  
+# ── Speaker IDs ───────────────────────────────────────────────────────────────
+# Marker IDs to treat as speakers in subsequent measurement runs. Stored in
+# the output calibration YAML so measure mode picks them up automatically.
+speaker_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# ── Optional: per-speaker distances (meters) ──────────────────────────────────
+# Used for parallax correction during measurement. Skipping them adds
+# (mic_to_cam_offset / distance) radians of angular error — usually 0.3–0.6°
+# for an 8 cm offset and speakers 3–6 m away. Leave as {} or fill selectively.
+speaker_distances:
+  # 0:  2.500
+  # 1:  2.250
+  # 2:  2.520
+  # 3:  2.167
+  # 4:  2.048
+  # 5:  3.077
+  # 6:  3.074
+  # 7:  1.998
+  # 8:  1.988
+  # 9:  1.879
+  # 10: 1.869
+# ── Output (optional) ─────────────────────────────────────────────────────────
+# Where calibrate mode should write its self-contained calibration YAML.
+# Overridable with --output on the CLI. The file produced here is the input
+# to every --mode measure run.
+output_calibration_yaml: calibration/rig_calibration_test.yaml
+
+# ── Upscaled-tile marker recovery ─────────────────────────────────────────────
+# If any configured calibration marker is still missing after the normal + seam
+# detection passes, rescan the photo in overlapping tiles upscaled ~3× to catch
+# tags too small / low-contrast for the full-frame pass. Adds only missed
+# markers (never disturbs the easy ones); runs only when something is missing.
+#   upscale_recovery: true|false  (default true)
+#   upscale_factor:   integer     (default 3)
+upscale_recovery: true
+upscale_factor: 3

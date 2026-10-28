@@ -1,0 +1,224 @@
+{
+  "image": [
+    "Measurement_Photo/Measure_Pic_1.JPG",
+    "Measurement_Photo/Measure_Pic_2.JPG"
+  ],
+  "calibration": "calibration/rig_calibration.yaml",
+  "timestamp_utc": "2026-07-18T15:59:52.732986+00:00",
+  "mic_to_cam": [
+    0.0,
+    0.0,
+    0.33
+  ],
+  "image_width": 7680,
+  "image_height": 3840,
+  "marker_trace": {
+    "detected_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "configured_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "matched_marker_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "missing_marker_ids": [],
+    "unexpected_marker_ids": [],
+    "seam_recovery": {
+      "photos": [
+        "Measurement_Photo/Measure_Pic_1.JPG",
+        "Measurement_Photo/Measure_Pic_2.JPG"
+      ],
+      "per_photo_recovery": {
+        "Measurement_Photo/Measure_Pic_1.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": []
+        },
+        "Measurement_Photo/Measure_Pic_2.JPG": {
+          "original_pass_ids": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "rolled_pass_ids": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recovered_seam_ids": []
+        }
+      },
+      "photo_hits": {
+        "0": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "1": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "2": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "3": [
+          "Measure_Pic_1.JPG"
+        ],
+        "4": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "5": [
+          "Measure_Pic_2.JPG"
+        ],
+        "6": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "7": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "8": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "9": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ],
+        "10": [
+          "Measure_Pic_1.JPG",
+          "Measure_Pic_2.JPG"
+        ]
+      },
+      "cross_photo_spread_deg": {
+        "0": 0.0255,
+        "1": 0.1278,
+        "2": 0.0937,
+        "3": 0.0,
+        "4": 0.0868,
+        "5": 0.0,
+        "6": 0.02,
+        "7": 0.0717,
+        "8": 0.1457,
+        "9": 0.1503,
+        "10": 0.0708
+      }
+    }
+  },
+  "missing_speaker_ids": [],
+  "speakers": {
+    "0": {
+      "azimuth_deg": 31.98051508876029,
+      "elevation_deg": -5.260127917647898
+    },
+    "1": {
+      "azimuth_deg": -32.367244817880156,
+      "elevation_deg": -4.851009037771823
+    },
+    "2": {
+      "azimuth_deg": -0.16949807717920543,
+      "elevation_deg": -6.131299379863134
+    },
+    "3": {
+      "azimuth_deg": 100.18231094801885,
+      "elevation_deg": -6.510325697277335
+    },
+    "4": {
+      "azimuth_deg": -103.90553419204657,
+      "elevation_deg": -7.4212748604351075
+    },
+    "5": {
+      "azimuth_deg": 136.61100833678475,
+      "elevation_deg": -5.0531459736275135
+    },
+    "6": {
+      "azimuth_deg": -139.86075228486195,
+      "elevation_deg": -6.092721293215652
+    },
+    "7": {
+      "azimuth_deg": 40.3381420981101,
+      "elevation_deg": 31.265325237386687
+    },
+    "8": {
+      "azimuth_deg": -40.309193512908536,
+      "elevation_deg": 30.709461758612505
+    },
+    "9": {
+      "azimuth_deg": 147.8579491362161,
+      "elevation_deg": 21.562129152097526
+    },
+    "10": {
+      "azimuth_deg": -152.40002007078633,
+      "elevation_deg": 21.256497895364287
+    }
+  }
+}

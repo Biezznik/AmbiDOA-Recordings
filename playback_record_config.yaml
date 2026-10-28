@@ -1,0 +1,110 @@
+# Configuration for playback_record.py — edit here, not in the script.
+
+# ── Paths ──────────────────────────────────────────────────────────────────────
+# Use absolute paths. mixes_dir must contain the WAV files listed in mix_manifest.
+mixes_dir:    /Volumes/Bieznik2T7/Locator_PHD/Real_Mixes
+mix_manifest: /Volumes/Bieznik2T7/Locator_PHD/Real_Mixes/manifest_00800_00899.json
+
+# JSON produced by speaker-array-groundtruth/examples/run_measurement.py
+calibration_manifest: /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/Measurement/speaker_positions_Batch_10.json
+
+recordings_dir: /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/recordings
+database_file:  /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/recordings/recordings_database.json
+
+# Compact augument02-style manifest (one entry per successful take):
+#   {audio_filepath, n_sources, regions, azimuths, elevations, mask}
+# Slot i corresponds to playback channel i (length = n_playback_channels).
+recording_manifest_file: /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/recordings/recording_manifest.json
+
+# Aggregated full-metadata log: ONE file with the complete ground truth (audio
+# info, devices, per-channel ground truth, calibration, mix-manifest entry) for
+# every successful take. Replaces the old per-recording <recording_id>.json
+# sidecars, so you get one file instead of one-per-mix.
+metadata_file: /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/recordings/recordings_metadata.json
+
+# ── Devices ────────────────────────────────────────────────────────────────────
+# Run 'python playback_record.py --list-devices' to see all indices.
+playback_device_index:  10
+recording_device_index: 0
+
+# ── Channels ───────────────────────────────────────────────────────────────────
+n_playback_channels:  11
+n_recording_channels: 19
+
+# output_channel_map: 0-indexed mix-WAV channel → 0-indexed Fireface output channel.
+#   Analog 1–8 = indices 0–7, ADAT 1–8 = indices 8–15.
+#   Analog 4 (index 3, SUB) is skipped — full-range speakers only.
+#
+# channel_to_speaker_id: 0-indexed mix-WAV channel → speaker ID in calibration manifest.
+#
+# mix ch:               0  1  2  3  4  5  6   7   8   9  10
+output_channel_map:    [0, 1, 2, 4, 5, 6, 7, 12, 13, 14, 15]
+# ArUco tags on the speakers are numbered 0–10 (matches the calibration
+# manifest speaker_positions_*.json), so this map is 0-based too.
+channel_to_speaker_id: [0, 1, 2, 3, 4, 5, 6,  7,  8,  9, 10]
+
+# Human-readable label per mix channel (used in --test-routing printout).
+speaker_layout:
+  mix_ch_0:  "Analog 1  — LEFT"
+  mix_ch_1:  "Analog 2  — RIGHT"
+  mix_ch_2:  "Analog 3  — CENTER"
+  mix_ch_3:  "Analog 5  — SURROUND LEFT   (Analog 4 / SUB skipped)"
+  mix_ch_4:  "Analog 6  — SURROUND RIGHT"
+  mix_ch_5:  "Analog 7  — REAR SURROUND LEFT"
+  mix_ch_6:  "Analog 8  — REAR SURROUND RIGHT"
+  mix_ch_7:  "ADAT 1    — TOP LEFT"
+  mix_ch_8:  "ADAT 2    — TOP RIGHT"
+  mix_ch_9:  "ADAT 3    — TOP REAR LEFT"
+  mix_ch_10: "ADAT 4    — TOP REAR RIGHT"
+
+# ── Audio ──────────────────────────────────────────────────────────────────────
+sample_rate: 48000   # Zylia native rate; mixes are resampled to this in prepare_real_mixes.py
+
+# Silence prepended / appended to every recording for onset and decay capture.
+pre_silence_sec:  0.5
+post_silence_sec: 1.5
+
+# Pause between consecutive mixes to let the room fully decay.
+inter_mix_gap_sec: 5.0
+
+# sounddevice latency: "low" | "high" | float (seconds)
+latency: low
+
+# Output WAV subtype: PCM_16 | PCM_24 | FLOAT
+bit_depth: PCM_24
+
+# Recording filenames: <recording_prefix>_<mix_id:05d>.wav
+recording_prefix: Batch_10
+
+# ── Batch mode ────────────────────────────────────────────────────────────────
+# Each run records one slice of `batch_size` mixes. In batch mode every run
+# writes its OWN timestamped files so a batch's metadata is never mixed with
+# another batch's (or a previous re-run of the same batch). Every file in a run
+# is named by `recording_prefix` above — the same token that names the WAVs —
+# so run files always pair 1:1 with the audio they describe:
+#   recordings_database_<prefix>_<timestamp>.json
+#   recording_manifest_<prefix>_<timestamp>.json
+#   recordings_metadata_<prefix>_<timestamp>.json
+#   <prefix>_<timestamp>_log.txt      (routing + speaker positions + outcomes)
+# NOTE: batch_index is NOT part of any filename. It only selects the mix slice.
+# recording_prefix identifies the rig pose; the two are free to differ (pose
+# Batch_6 recording mix slice 5, say), and naming by index would then give two
+# unrelated runs the same name.
+# Because each run starts from a fresh database, the whole batch is (re)recorded;
+# to resume after a crash mid-batch, use `--start-from IDX`. 8 batches × 100 = 800.
+# Override per-run with `--batch IDX` on the CLI; null disables here.
+batch_size: 100
+batch_index: 8
+
+# ── Startup delay ─────────────────────────────────────────────────────────────
+# Seconds to wait (with a countdown) before the first recording starts, so you
+# can leave the measurement area and not be captured in the recordings.
+# 0 disables; override per-run with `--startup-delay SEC`. Skipped for --dry-run.
+startup_delay_sec: 15
+
+# ── Routing test ───────────────────────────────────────────────────────────────
+# 11-channel WAV played by --test-routing to verify speaker routing.
+# Each channel should carry a distinct signal (tone, sweep, or noise burst)
+# so every Fireface output → speaker assignment can be confirmed by ear.
+# Recording is saved to recordings_dir as test_routing_<timestamp>.wav + .json.
+test_wav: /Volumes/Bieznik2T7/PhD/AmbiDOA_Real_Dataset/TEST_AmbiDOA_REC.wav

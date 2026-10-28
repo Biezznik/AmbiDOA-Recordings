@@ -1,0 +1,37 @@
+# Calibration input file
+#
+# Edit this file with measurements specific to your rig and session.
+# All distances in METERS, all coordinates in MIC FRAME (+x forward, +y left, +z up).
+
+# Camera-to-mic offset, in mic frame.
+# Vector FROM mic capsule TO camera optical center (midpoint between Insta360 lenses).
+# Measure ONCE with calipers per rig assembly.
+mic_to_cam: [0.000, 0.000, -0.080]   # example: camera 8 cm directly below mic
+
+# Path to the calibration photo (equirectangular 360°)
+calibration_image: data/calibration_photo.jpg
+
+# Calibration markers: marker_id -> [x, y, z] in mic frame (meters)
+# Place at least 5; spread them across azimuth AND elevation for best results.
+calibration_markers:
+  100: [3.420,  0.000,  0.000]   # marker on far wall, dead ahead, mic height
+  101: [0.000,  2.150,  0.000]   # marker on left wall, mic height
+  102: [-2.800, 0.000,  0.000]   # marker on rear wall
+  103: [0.000,  0.000,  1.420]   # marker on ceiling, plumb above mic
+  104: [1.500,  1.500,  0.800]   # marker high on front-left
+  105: [1.500, -1.500, -0.300]   # marker low on front-right
+
+# Speaker marker IDs (1-11 for an 11-speaker array)
+speaker_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+# Optional: per-speaker distance from camera in meters (for parallax correction).
+# If you don't measure these, leave the dict empty {} or comment out individual
+# entries. Skipping parallax correction adds (offset / distance) radians of
+# error — typically 0.3–0.6° for a 5–10 cm offset and speakers 3–6 m away.
+speaker_distances: {}
+  # 1: 2.10
+  # 2: 2.08
+  # 3: 2.12
+
+# Output path for the saved calibration rotation
+output_calibration: calibration/rig_calibration_R.npy

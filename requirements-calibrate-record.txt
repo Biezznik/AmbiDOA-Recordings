@@ -1,0 +1,27 @@
+# Requirements for the calibrate/record scripts:
+#   calibrate_measure.py  (--mode calibrate | measure, incl. speaker-array-groundtruth/src)
+#   playback_record.py
+#
+# Install into a fresh venv with:
+#   python -m pip install -r requirements-calibrate-record.txt
+#
+# Versions pinned to what is currently working in .venv (Python 3.14).
+
+# ── Core numerics / config (both scripts + src package) ───────────────────────
+numpy==2.4.6
+scipy==1.17.1
+PyYAML==6.0.3
+
+# ── Vision: panorama load + ArUco marker detection (calibrate_measure.py) ─────
+# ArUco lives in opencv-contrib, so the contrib build is required (not plain
+# opencv-python).
+opencv-contrib-python==4.13.0.92
+
+# ── Audio playback + capture (playback_record.py) ─────────────────────────────
+sounddevice==0.5.5
+soundfile>=0.12,<0.14
+
+# ── Optional: RAW (.dng/.arw/...) calibration photos ──────────────────────────
+# calibrate_measure.py imports rawpy lazily and only when the calibration_image
+# is a RAW file; skip it if you feed JPEG/PNG panoramas.
+rawpy>=0.19

@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Generated / measured data
+data/*.jpg
+data/*.jpeg
+data/*.png
+data/*.dng
+data/*.insp
+data/output/*
+
+# Saved calibration artifacts (regenerate per session)
+calibration/*.npy
+calibration/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
